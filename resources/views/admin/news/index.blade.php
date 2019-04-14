@@ -46,6 +46,8 @@
                 <td>{{ str_limit($news->boby, 250) }}</td>
                 <td><div><a href="{{ action('Admin\NewsController@edit', ['id'=> $news->id]) }}">編集</a>
                 </div>
+                <div><a href="{{ action('Admin\NewsController@delete', ['id' => $news->id]) }}">
+                </div>
               </td>
               </tr>
               @endforeach

@@ -22,7 +22,7 @@ public function create(Request $request)
   $form = $request->all();
   if (isset($form['image'])) {
     $path = $request->file('image')->store('public/image');
-    $news->image_path = basename($path); 
+    $news->image_path = basename($path);
   } else {
     $news->image_path = null;
   }
@@ -37,7 +37,7 @@ public function create(Request $request)
 public function index(Request $request)
 {
   $cond_title = $request->cond_title;
-  if ($cond_title != ' ') {
+  if ($cond_title != '') {
     $posts = News::where('title', $cond_title)->get();
   } else {
     $posts = News::all();
@@ -61,6 +61,12 @@ public function update(Request $request)
   $news_form = $request->all();
   unset($news_form['_token']);
   $news->fill($news_form)->save();
-  return redirect('admin/news');
+  return redirect('admin/news/');
+}
+public function delete(Request $request)
+{
+  $news = News::find($request->id);
+  $news->delete();
+  return redict('admin/news/');
 }
 }
