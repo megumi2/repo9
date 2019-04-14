@@ -7,6 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 class Profile extends Model
 {
     protected $guarded = array('name');
+    protected $fillable = [
+      'name', 'gender', 'hobby','introduction'
+    ];
     //
     public static $rules = array(
       'gender' => 'required',

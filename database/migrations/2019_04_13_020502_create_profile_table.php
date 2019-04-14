@@ -13,9 +13,9 @@ class CreateProfileTable extends Migration
      */
     public function up()
     {
-        Schema::create('profile', function (Blueprint $table) {
-            
-            $table->increments('name');
+        Schema::create('profiles', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('name');
             $table->string('gender');
             $table->string('hobby');
             $table->string('introduction');
@@ -31,6 +31,6 @@ class CreateProfileTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('profile');
+        Schema::dropIfExists('profiles');
     }
 }
