@@ -40,6 +40,11 @@
               <th>{{ $profile->id }}</th>
               <td>{{ str_limit($profile->name, 100) }}</td>
               <td>{{ str_limit($profile->introduction, 250) }}</td>
+              <td>
+                <div>
+                  <a href="{{ action('Admin\ProfileController@edit', ['id'=> $profile->id]) }}">編集</a>
+                </div>
+              </td>
             <tr>
           @endforeach
         </tbody>

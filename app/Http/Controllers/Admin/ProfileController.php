@@ -30,7 +30,7 @@ class ProfileController extends Controller
     public function index(Request $request)
     {
       $cond_title = $request->cond_title;
-      if ($cond_title !=' ') {
+      if ($cond_title !='') {
         $posts = Profile::where('title',$cond_title)->get();
       } else {
         $posts = Profile::all();
@@ -41,9 +41,9 @@ class ProfileController extends Controller
     public function edit(Request $request)
     {
       $profile = Profile::find($request->id);
-      if (empty($news)) {
-        abort(404);
-      }
+    //  if (empty($news)) {
+    //    abort(404);
+  //    }
       return view('admin.profile.edit', ['profile_form' => $profile]);
     }
     public function update(Request $request)

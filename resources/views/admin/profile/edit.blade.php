@@ -53,6 +53,7 @@
           @foreach ($profile_form->profile_histories as $history)
             <li class="list-group-item">{{ $history->edited_at }}</li>
           @endforeach
+          @endif
         </ul>
   </div>
 </div>
