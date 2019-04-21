@@ -1,4 +1,4 @@
-@extrends('layout.admin')
+@extends('layouts.profile')
 @section('title', 'プロフィール一覧')
 
 @section('content')
@@ -37,7 +37,10 @@
          <tbody>
            @foreach($posts as $profile)
             <tr>
-              <th>{{ $profile->id }}</th>
+              <td>{{ $profile->id }}</td>
+              <td>{{ $profile->name }}
+              <td>{{ $profile->gender }}</td>
+              <td>{{ $profile->hobby }}</td>
               <td>{{ str_limit($profile->name, 100) }}</td>
               <td>{{ str_limit($profile->introduction, 250) }}</td>
               <td>
