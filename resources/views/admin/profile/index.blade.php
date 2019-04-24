@@ -38,6 +38,7 @@
            @foreach($posts as $profile)
             <tr>
               <td>{{ $profile->id }}</td>
+              <td>{{ $profile->name }}</td>
               <td>{{ $profile->gender }}</td>
               <td>{{ $profile->hobby }}</td>
               <td>{{ str_limit($profile->introduction, 250) }}</td>
