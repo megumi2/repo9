@@ -5,12 +5,13 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\HTML;
 use App\News;
+use App\Profile
 class NewsController extends Controller
 {
   public function index(Request $request)
   {
     $cond_title = $request->cond_title;
-    if (cond_title != '') {
+    if ($cond_title != '') {
       $posts = News::where('title', $cond_title).orderBy('updated_at', 'desc')->get();
     } else {
       $posts = News::all()->sortByDesc('updated_at');
@@ -21,6 +22,10 @@ class NewsController extends Controller
       $headline = null;
     }
     return view('news.index', ['headline' => $headline, 'posts' => $posts, 'cond_title' => $cond_title]);
+    }
+    public function profile(Request $request)
+    {
+      return view('news.profile')
     }
   }
     //
