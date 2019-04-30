@@ -2,35 +2,47 @@
 
 @section('content')
 <div class="container">
-  <hr color="#c0c0c0">
   <div class="row">
-    <div class="col-md-8 mx-auto">
-      <h2>MY プロフィール</h2>
-      <form action="{{ action('Auth\NewsController@update') }}" method="post" enctype="multipart/form-data">
+    <h2>プロフィール</h2>
   </div>
-  <div class="form-group row">
-    <label class="col-md-2" for="name">名前</label>
-    <div class="col-md-10">
-      <input type="text" class="form-control" name="name" value="{{ old('name') }}">
-    </div>
+ <div class="row">
+   <div class="col-md-4">
+   </div>
+   <div class="col-md-8">
+
+
+   </div>
+ </div>
+ <div class="row">
+   <div class="list-news col-md-12 mx-auto">
+     <div class="row">
+       <table class="table table-dark">
+         <thead>
+         <tr>
+           <th width="10%">ID</th>
+           <th width="10%">名前</th>
+           <th width="10%">性別</th>
+           <th width="10%">趣味</th>
+           <th width="50%">自己紹介</th>
+         </tr>
+       </thead>
+       <tbody>
+         @foreach($posts as $profile)
+          <tr>
+            <td>{{ $profile->id }}</td>
+            <td>{{ $profile->name }}</td>
+            <td>{{ $profile->gender }}</td>
+            <td>{{ $profile->hobby }}</td>
+            <td>{{ str_limit($profile->introduction, 250) }}</td>
+            <td>
+
+            </td>
+          <tr>
+        @endforeach
+      </tbody>
+    </table>
   </div>
-  <div class="form-group row">
-    <label class="col-md-2" for="gender">性別</label>
-  <div class="col-md-10">
-    <input type="text" class="form-control" name="gender" value="{{ old('gender') }}">
-  </div>
-  </div>
-  <div class="form-group row">
-    <label class="col-md-2" for="hobby">趣味</label>
-  </div class="col-md-10">
-   <input type="text" class="form-control" name="gender" value="{{ old('hobby') }}">
 </div>
-<div class="form-group row">
-  <label class="col-md-2" for="introduction">自己紹介</label>
-  <div class="col-md-10">
-    <textarea class="form-control" name="introduction" rows="20">{{ old('introduction') }}</textarea>
-  </div>
-</div>
-  </div>
+ </div>
 </div>
 @endsection

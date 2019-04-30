@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\HTML;
 use App\News;
-use App\Profile
+use App\Profile;
 class NewsController extends Controller
 {
   public function index(Request $request)
@@ -23,9 +23,21 @@ class NewsController extends Controller
     }
     return view('news.index', ['headline' => $headline, 'posts' => $posts, 'cond_title' => $cond_title]);
     }
+    public function update(Request $request){
+
+    }
+
     public function profile(Request $request)
     {
-      return view('news.profile');
+        $cond_title = $request->cond_title;
+        if ($cond_title !='') {
+          $posts = Profile::where('title',$cond_title)->get();
+        } else {
+          $posts = Profile::all();
+        }
+
+
+      return view('news.profile', ['posts' => $posts]);
     }
   }
     //
