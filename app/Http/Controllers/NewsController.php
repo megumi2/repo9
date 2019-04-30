@@ -25,7 +25,7 @@ class NewsController extends Controller
     }
     public function profile(Request $request)
     {
-      return view('news.profile')
+      return view('news.profile');
     }
   }
     //
